@@ -1,18 +1,11 @@
-import { Avatar, Box, Button, Container, Paper, Typography, useMediaQuery } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { Box, Button, Container, Paper, Typography, useMediaQuery } from '@mui/material';
 import fist from '../../assets/fist.jpg';
 import plant from '../../assets/plant.jpg';
 import womanWDog from '../../assets/womanWDog.jpg';
 
 const Home = () => {
-  const [a, setA] = useState('');
-
-  useEffect(() => {
-    setA('a');
-  }, []);
-
   const isXSmallScreen = useMediaQuery('(max-width:600px)');
-  const isSmallScreen = useMediaQuery('(min-width:601px) and (max-width:960px)');
+  // const isSmallScreen = useMediaQuery('(min-width:601px) and (max-width:960px)');
   const isMediumScreen = useMediaQuery('(min-width:1280px)');
   const topMargin = isXSmallScreen ? 7.5 : 25;
 

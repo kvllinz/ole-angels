@@ -1,6 +1,6 @@
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { deepOrange, grey } from '@mui/material/colors';
+import { deepOrange } from '@mui/material/colors';
 import { useRoutes } from 'react-router-dom';
 import appRoutes from './appRoutes';
 import ResponsiveAppBar from './Components/AppBar/AppBar';
