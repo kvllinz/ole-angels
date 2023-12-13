@@ -30,6 +30,7 @@ const Home = () => {
   const isXSmallScreen = useMediaQuery('(max-width:600px)');
   // const isSmallScreen = useMediaQuery('(min-width:601px) and (max-width:960px)');
   const isMediumScreen = useMediaQuery('(min-width:1280px)');
+  // const isIpadScreen = useMediaQuery('');
   const topMargin = isXSmallScreen ? 7.5 : 25;
 
   const images = [
@@ -174,7 +175,7 @@ const Home = () => {
         }}>
         <ImageList
           cols={isMediumScreen ? 3 : 1}
-          sx={{ width: '100%', height: isMediumScreen ? 250 : 1200 }}
+          sx={{ width: '100%', height: isMediumScreen ? 350 : 1200 }}
           rowHeight={isMediumScreen ? 200 : 250}
           gap={isMediumScreen ? 40 : 0}>
           {images.map(({ img, words, subWords }) => (
