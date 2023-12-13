@@ -130,6 +130,34 @@ const Home = () => {
           {'Learn More'}
         </Button>
       </Paper>
+      <Box
+        sx={{
+          mt: 15,
+          width: '100%',
+          maxWidth: { md: isMediumScreen ? '450px' : '200px' },
+          display: 'flex',
+          justifyContent: 'center',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}>
+        <Typography
+          sx={{
+            textAlign: 'center', // Add this line
+            fontFamily: 'serif',
+            fontSize: isMediumScreen ? 40 : 20,
+            letterSpacing: '.3rem',
+            color: 'inherit',
+            textDecoration: 'none',
+          }}>
+          What We Do
+        </Typography>
+        <Typography sx={{ fontFamily: 'serif', fontSize: isMediumScreen ? 17 : 14 }}>Meaningful Work</Typography>
+      </Box>
+      {/* <Box sx={{ mt: 4 }}>
+        {images.map(image => (
+          <Box component='img' src={image} />
+        ))}
+      </Box> */}
     </Container>
   );
 };

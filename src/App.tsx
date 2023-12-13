@@ -11,10 +11,10 @@ const darkTheme = createTheme({
     // // palette values for dark mode
     primary: deepOrange,
     // divider: deepOrange[700],
-    background: {
-      default: '#015955',
-      paper: '#015955',
-    },
+    // background: {
+    //   default: '#015955',
+    //   paper: '#015955',
+    // },
     // text: {
     //   primary: '#fff',
     //   secondary: grey[500],
