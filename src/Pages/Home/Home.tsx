@@ -2,8 +2,21 @@ import { Box, Button, Container, Paper, Typography, useMediaQuery } from '@mui/m
 import fist from '../../assets/fist.jpg';
 import plant from '../../assets/plant.jpg';
 import womanWDog from '../../assets/womanWDog.jpg';
+import { useState, useEffect } from 'react';
 
 const Home = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Trigger the fade-in effect after a short delay (you can adjust the delay)
+    const timeout = setTimeout(() => {
+      setIsVisible(true);
+    }, 500);
+
+    // Clear the timeout when the component unmounts
+    return () => clearTimeout(timeout);
+  }, []);
+
   const isXSmallScreen = useMediaQuery('(max-width:600px)');
   // const isSmallScreen = useMediaQuery('(min-width:601px) and (max-width:960px)');
   const isMediumScreen = useMediaQuery('(min-width:1280px)');
@@ -30,6 +43,8 @@ const Home = () => {
             width: { xs: '100%', sm: '100%', md: '30%' }, // Set the initial width of the image
             flex: '1 1 auto', // Allow the image to grow and shrink
             maxWidth: { md: '650px' }, // Set a maximum width on medium screens
+            opacity: isVisible ? 1 : 0,
+            transition: 'opacity 1s ease-in-out',
           }}
         />
         <Box
