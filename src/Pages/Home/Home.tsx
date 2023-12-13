@@ -1,8 +1,19 @@
-import { Box, Button, Container, Paper, Typography, useMediaQuery } from '@mui/material';
+import {
+  Box,
+  Button,
+  Container,
+  // ImageList,
+  // ImageListItem,
+  // ImageListItemBar,
+  Paper,
+  Typography,
+  useMediaQuery,
+} from '@mui/material';
 import fist from '../../assets/fist.jpg';
 import plant from '../../assets/plant.jpg';
 import womanWDog from '../../assets/womanWDog.jpg';
 import { useState, useEffect } from 'react';
+// import { deepOrange } from '@mui/material/colors';
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -22,7 +33,11 @@ const Home = () => {
   const isMediumScreen = useMediaQuery('(min-width:1280px)');
   const topMargin = isXSmallScreen ? 7.5 : 25;
 
-  const images = [fist, plant, womanWDog];
+  const images = [
+    { img: fist, words: 'Local Empowerment', subWords: ' Change for the Better' },
+    { img: plant, words: 'Economic Development', subWords: 'Making Change Possible' },
+    { img: womanWDog, words: 'Capacity Building', subWords: 'Empowering Others' },
+  ];
 
   return (
     <Container
@@ -32,13 +47,11 @@ const Home = () => {
         justifyContent: 'flex-start',
         flexDirection: 'column',
         my: topMargin,
-        mr: isMediumScreen ? 5 : 0,
-        ml: isMediumScreen ? 5 : 0,
       }}>
       <Box display='flex' flexDirection={{ xs: 'column', md: 'row' }}>
         <Box
           component='img'
-          src={images[0]}
+          src={images[0].img}
           sx={{
             width: { xs: '100%', sm: '100%', md: '30%' }, // Set the initial width of the image
             flex: '1 1 auto', // Allow the image to grow and shrink
@@ -139,10 +152,10 @@ const Home = () => {
           justifyContent: 'center',
           flexDirection: 'column',
           alignItems: 'center',
+          alignSelf: 'center',
         }}>
         <Typography
           sx={{
-            textAlign: 'center', // Add this line
             fontFamily: 'serif',
             fontSize: isMediumScreen ? 40 : 20,
             letterSpacing: '.3rem',
@@ -153,11 +166,24 @@ const Home = () => {
         </Typography>
         <Typography sx={{ fontFamily: 'serif', fontSize: isMediumScreen ? 17 : 14 }}>Meaningful Work</Typography>
       </Box>
-      {/* <Box sx={{ mt: 4 }}>
-        {images.map(image => (
-          <Box component='img' src={image} />
+      {/* <ImageList sx={{ width: 500, height: 450, mt: 4 }}>
+        {images.map(({ img, words, subWords }) => (
+          <ImageListItem key={img}>
+            <img
+              srcSet={`${img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+              src={`${img}?w=248&fit=crop&auto=format`}
+              alt={words}
+              loading='lazy'
+            />
+            <ImageListItemBar
+              color={deepOrange[700]}
+              title={words}
+              subtitle={<span> {subWords}</span>}
+              position='below'
+            />
+          </ImageListItem>
         ))}
-      </Box> */}
+      </ImageList> */}
     </Container>
   );
 };
