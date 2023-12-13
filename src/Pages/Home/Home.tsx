@@ -2,9 +2,9 @@ import {
   Box,
   Button,
   Container,
-  // ImageList,
-  // ImageListItem,
-  // ImageListItemBar,
+  ImageList,
+  ImageListItem,
+  ImageListItemBar,
   Paper,
   Typography,
   useMediaQuery,
@@ -13,7 +13,6 @@ import fist from '../../assets/fist.jpg';
 import plant from '../../assets/plant.jpg';
 import womanWDog from '../../assets/womanWDog.jpg';
 import { useState, useEffect } from 'react';
-// import { deepOrange } from '@mui/material/colors';
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -103,7 +102,6 @@ const Home = () => {
         sx={{
           mt: isMediumScreen ? 15 : 5,
           backgroundColor: 'white',
-          mr: isMediumScreen ? 10 : undefined,
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
@@ -166,24 +164,38 @@ const Home = () => {
         </Typography>
         <Typography sx={{ fontFamily: 'serif', fontSize: isMediumScreen ? 17 : 14 }}>Meaningful Work</Typography>
       </Box>
-      {/* <ImageList sx={{ width: 500, height: 450, mt: 4 }}>
-        {images.map(({ img, words, subWords }) => (
-          <ImageListItem key={img}>
-            <img
-              srcSet={`${img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-              src={`${img}?w=248&fit=crop&auto=format`}
-              alt={words}
-              loading='lazy'
-            />
-            <ImageListItemBar
-              color={deepOrange[700]}
-              title={words}
-              subtitle={<span> {subWords}</span>}
-              position='below'
-            />
-          </ImageListItem>
-        ))}
-      </ImageList> */}
+      <div
+        style={{
+          maxWidth: isMediumScreen ? '1020px' : '450px',
+          display: 'flex',
+          flexDirection: 'row',
+          alignSelf: 'center',
+          marginTop: 9,
+        }}>
+        <ImageList
+          cols={isMediumScreen ? 3 : 1}
+          sx={{ width: '100%', height: isMediumScreen ? 250 : 1200 }}
+          rowHeight={isMediumScreen ? 200 : 250}
+          gap={isMediumScreen ? 40 : 0}>
+          {images.map(({ img, words, subWords }) => (
+            <ImageListItem key={img}>
+              <img
+                style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                srcSet={`${img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                src={`${img}?w=248&fit=crop&auto=format`}
+                alt={words}
+                loading='lazy'
+              />
+              <ImageListItemBar
+                title={words}
+                sx={{ fontFamily: 'serif', textAlign: 'center', mt: 3 }}
+                subtitle={<Typography sx={{ fontFamily: 'serif', textAlign: 'center' }}>{subWords}</Typography>}
+                position='below'
+              />
+            </ImageListItem>
+          ))}
+        </ImageList>
+      </div>
     </Container>
   );
 };
