@@ -44,7 +44,7 @@ const Home = () => {
             flex: '1 1 auto', // Allow the image to grow and shrink
             maxWidth: { md: '650px' }, // Set a maximum width on medium screens
             opacity: isVisible ? 1 : 0,
-            transition: 'opacity 1s ease-in-out',
+            transition: 'opacity 5s ease-in-out',
           }}
         />
         <Box
