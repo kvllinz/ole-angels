@@ -39,6 +39,26 @@ const Home = () => {
     { img: womanWDog, words: 'Capacity Building', subWords: 'Empowering Others' },
   ];
 
+  const resourcesGuidlines = [
+    {
+      id: '01.',
+      title: 'How We Help',
+      words:
+        "Our grants are intended to offset the costs associated with each child's recovery that are not covered by medical insurance.",
+    },
+    {
+      id: '02.',
+      title: 'Apply for a Grant',
+      words:
+        'Read through our requirements to learn if you are eligible for assistance, and how to start the  application process.',
+    },
+    {
+      id: '03.',
+      title: 'Recieve Funding',
+      words: 'If selected, our team will work with you and your providers to pay your medical providers directly.',
+    },
+  ];
+
   return (
     <Container
       maxWidth='xl'
@@ -175,7 +195,7 @@ const Home = () => {
         }}>
         <ImageList
           cols={isMediumScreen ? 3 : 1}
-          sx={{ width: '100%', height: isMediumScreen ? 350 : 1200 }}
+          sx={{ width: '100%', height: isMediumScreen ? 290 : 1100 }}
           rowHeight={isMediumScreen ? 200 : 250}
           gap={isMediumScreen ? 40 : 0}>
           {images.map(({ img, words, subWords }) => (
@@ -197,6 +217,113 @@ const Home = () => {
           ))}
         </ImageList>
       </div>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          textAlign: 'center',
+          mt: isMediumScreen ? 3 : 0,
+        }}>
+        <Typography
+          sx={{
+            pt: isMediumScreen ? 10 : 5,
+            fontFamily: 'serif',
+            fontSize: isMediumScreen ? 35 : 20,
+            pl: isMediumScreen ? 30 : 2,
+            pr: isMediumScreen ? 30 : 2,
+          }}>
+          Get the Resources You Need
+        </Typography>
+        <Typography
+          sx={{
+            pt: 1,
+            fontFamily: 'serif',
+            fontSize: isMediumScreen ? 17 : 13,
+            pl: isMediumScreen ? 30 : 2,
+            pr: isMediumScreen ? 30 : 2,
+          }}>
+          Naole's Angels is proud to manage our Patient Assistance Grant Program, offering tailored to the unique
+          individual recovery of each patient applicant.
+        </Typography>
+      </Box>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          mt: isMediumScreen ? 9 : 2,
+          alignSelf: 'center',
+          flexDirection: isMediumScreen ? 'row' : 'column',
+        }}>
+        {resourcesGuidlines.map(({ id, title, words }, index) => (
+          <>
+            <Box
+              key={index}
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                textAlign: 'center',
+                justifyContent: 'center',
+                width: 300,
+                height: 200,
+                mt: isMediumScreen ? 0 : 5,
+                backgroundColor: 'white',
+                color: '#397f77',
+                pr: 1,
+                pl: 1,
+                py: 1,
+                borderRadius: '2%',
+              }}>
+              <Typography sx={{ fontFamily: 'serif', fontSize: isMediumScreen ? 35 : 20, fontWeight: 400 }}>
+                {id}
+              </Typography>
+              <Typography sx={{ fontFamily: 'serif', fontSize: isMediumScreen ? 17 : 13, fontWeight: 300 }}>
+                {title}
+              </Typography>
+              <Typography sx={{ fontFamily: 'serif', fontSize: isMediumScreen ? 14 : 11 }}>{words}</Typography>
+            </Box>
+            {index <= 1 && <div style={{ height: '100%', borderLeft: '1px solid #000000', margin: '0 10px' }} />}
+          </>
+        ))}
+      </Box>
+      <Button
+        variant='contained'
+        size={isMediumScreen ? undefined : 'small'}
+        sx={{
+          mt: isMediumScreen ? 10 : 5,
+          maxWidth: '150px',
+          display: 'flex',
+          alignSelf: 'center',
+          justifyContent: 'center',
+        }}>
+        {'Learn More'}
+      </Button>
+      <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', mt: isMediumScreen ? 20 : 5 }}>
+        <Typography
+          sx={{
+            textAlign: 'center',
+            fontFamily: 'serif',
+            fontSize: isMediumScreen ? 35 : 20,
+            fontWeight: 300,
+            color: 'inherit',
+            textDecoration: 'none',
+          }}>
+          Join The Fight
+        </Typography>
+        <Button
+          variant='contained'
+          size={isMediumScreen ? undefined : 'small'}
+          sx={{
+            mt: isMediumScreen ? 5 : 2,
+            maxWidth: '150px',
+            display: 'flex',
+            alignSelf: 'center',
+            justifyContent: 'center',
+          }}>
+          {'Donate Today'}
+        </Button>
+      </Box>
     </Container>
   );
 };

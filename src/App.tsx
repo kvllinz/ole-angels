@@ -4,7 +4,7 @@ import { deepOrange } from '@mui/material/colors';
 import { useRoutes } from 'react-router-dom';
 import appRoutes from './appRoutes';
 import ResponsiveAppBar from './Components/AppBar/AppBar';
-import FloatingButton from './Components/FloatingButton';
+import FloatingButton from './Components/FloatingButton/FloatingButton';
 
 const darkTheme = createTheme({
   palette: {
