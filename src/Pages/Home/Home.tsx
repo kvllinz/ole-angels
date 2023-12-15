@@ -5,7 +5,6 @@ import {
   ImageList,
   ImageListItem,
   ImageListItemBar,
-  Paper,
   Typography,
   useMediaQuery,
 } from '@mui/material';
@@ -13,6 +12,7 @@ import fist from '../../assets/fist.jpg';
 import plant from '../../assets/plant.jpg';
 import womanWDog from '../../assets/womanWDog.jpg';
 import { useState, useEffect } from 'react';
+import ContentPaper from '../../Components/ContentPaper/ContentPaper';
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -66,7 +66,8 @@ const Home = () => {
         display: 'flex',
         justifyContent: 'flex-start',
         flexDirection: 'column',
-        my: topMargin,
+        mt: topMargin,
+        mb: 3,
       }}>
       <Box display='flex' flexDirection={{ xs: 'column', md: 'row' }}>
         <Box
@@ -118,50 +119,13 @@ const Home = () => {
           </Typography>
         </Box>
       </Box>
-
-      <Paper
-        sx={{
-          mt: isMediumScreen ? 15 : 5,
-          backgroundColor: 'white',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-        <Typography
-          sx={{
-            color: '#397f77',
-            pt: isMediumScreen ? 10 : 5,
-            alignSelf: 'flex-start',
-            fontFamily: 'serif',
-            fontSize: isMediumScreen ? 35 : 20,
-            pl: isMediumScreen ? 30 : 2,
-            pr: isMediumScreen ? 30 : 2,
-          }}>
-          Who We Are
-        </Typography>
-        <Typography
-          sx={{
-            color: '#397f77',
-            pt: 1,
-            alignSelf: 'flex-start',
-            fontFamily: 'serif',
-            fontSize: isMediumScreen ? 17 : 13,
-            pl: isMediumScreen ? 30 : 2,
-            pr: isMediumScreen ? 30 : 2,
-          }}>
-          Our strength lies not only in the words we stand by, but most importantly in the actions of our initiatives.
-          From the moment we started our work in 2000, we understood that by working together we could overcome our
-          challenges much more efficiently, and that is why we ultimately decided to launch Oles Angels. We strive to
-          make a positive change in all of our pursuits.
-        </Typography>
-        <Button
-          variant='contained'
-          size={isMediumScreen ? undefined : 'small'}
-          sx={{ mt: isMediumScreen ? 20 : 10, mb: isMediumScreen ? 10 : 5 }}>
-          {'Learn More'}
-        </Button>
-      </Paper>
+      <ContentPaper
+        title='Who We Are'
+        content='Our strength lies not only in the words we stand by, but most importantly in the actions of our initiatives.
+        From the moment we started our work in 2000, we understood that by working together we could overcome our
+        challenges much more efficiently, and that is why we ultimately decided to launch Oles Angels. We strive to make
+        a positive change in all of our pursuits.'
+      />
       <Box
         sx={{
           mt: 15,
@@ -297,7 +261,7 @@ const Home = () => {
           alignSelf: 'center',
           justifyContent: 'center',
         }}>
-        {'Learn More'}
+        {'Apply'}
       </Button>
       <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', mt: isMediumScreen ? 20 : 5 }}>
         <Typography
@@ -323,6 +287,11 @@ const Home = () => {
           }}>
           {'Donate Today'}
         </Button>
+      </Box>
+      <Box sx={{ display: 'flex', flexDirection: 'column', mt: isMediumScreen ? 20 : 14, alignItems: 'center' }}>
+        <Typography sx={{ fontFamily: 'serif', mb: 2, fontSize: 19 }}> Naole's Angels</Typography>
+        <a style={{ fontFamily: 'serif' }}>info@mysite.com</a>
+        <Typography sx={{ fontFamily: 'serif', mt: 4, fontSize: 11 }}> ©2023 by Naole's Angels.</Typography>
       </Box>
     </Container>
   );
