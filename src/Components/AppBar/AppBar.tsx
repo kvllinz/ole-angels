@@ -1,4 +1,4 @@
-import { Container, Toolbar, Typography, Box, MenuItem, IconButton, Menu, Button } from '@mui/material';
+import { Container, Toolbar, Typography, Box, MenuItem, IconButton, Menu } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import React, { useState } from 'react';
 import AdbIcon from '@mui/icons-material/Adb';
@@ -6,6 +6,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from 'react-router-dom';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import StyledButton from '../StyledButton/StyledButton';
+import { useDispatch } from 'react-redux';
+import { setIsVisible } from '../../commonSlice';
 
 const pages = [
   { name: 'Home', nav: '/' },
@@ -19,13 +22,17 @@ const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
 
   const handleCloseNavMenu = (nav?: string) => {
-    if (nav) navigate(nav);
+    if (nav) {
+      console.log({ nav });
+      nav === 'donate' ? dispatch(setIsVisible(true)) : navigate(nav);
+    }
     setAnchorElNav(null);
   };
 
@@ -101,23 +108,23 @@ const ResponsiveAppBar = () => {
           </Typography>
           <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
             {pages.map(({ name, nav }) => (
-              <Button
+              <StyledButton
                 key={name}
                 size='small'
                 variant={name === 'Donate' ? 'contained' : 'text'}
                 onClick={() => handleCloseNavMenu(nav)}
                 sx={{ my: 4, mr: 1, color: 'white', display: 'block' }}>
                 {name}
-              </Button>
+              </StyledButton>
             ))}
           </Box>
           <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
-            <Button>
+            <StyledButton>
               <FacebookIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-            </Button>
-            <Button>
+            </StyledButton>
+            <StyledButton>
               <InstagramIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-            </Button>
+            </StyledButton>
           </Box>
         </Toolbar>
       </Container>

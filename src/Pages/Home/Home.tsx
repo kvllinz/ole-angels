@@ -1,31 +1,27 @@
-import {
-  Box,
-  Button,
-  Container,
-  ImageList,
-  ImageListItem,
-  ImageListItemBar,
-  Typography,
-  useMediaQuery,
-} from '@mui/material';
+import { Box, Container, ImageList, ImageListItem, ImageListItemBar, Typography, useMediaQuery } from '@mui/material';
 import fist from '../../assets/fist.jpg';
 import plant from '../../assets/plant.jpg';
 import womanWDog from '../../assets/womanWDog.jpg';
 import { useState, useEffect } from 'react';
 import ContentPaper from '../../Components/ContentPaper/ContentPaper';
+import StyledButton from '../../Components/StyledButton/StyledButton';
+import { useDispatch } from 'react-redux';
+import { setIsVisible } from '../../commonSlice';
 
 const Home = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isImageVisible, setIsImageVisible] = useState(false);
 
   useEffect(() => {
     // Trigger the fade-in effect after a short delay (you can adjust the delay)
     const timeout = setTimeout(() => {
-      setIsVisible(true);
+      setIsImageVisible(true);
     }, 500);
 
     // Clear the timeout when the component unmounts
     return () => clearTimeout(timeout);
   }, []);
+
+  const dispatch = useDispatch();
 
   const isXSmallScreen = useMediaQuery('(max-width:600px)');
   // const isSmallScreen = useMediaQuery('(min-width:601px) and (max-width:960px)');
@@ -77,7 +73,7 @@ const Home = () => {
             width: { xs: '100%', sm: '100%', md: '30%' }, // Set the initial width of the image
             flex: '1 1 auto', // Allow the image to grow and shrink
             maxWidth: { md: '650px' }, // Set a maximum width on medium screens
-            opacity: isVisible ? 1 : 0,
+            opacity: isImageVisible ? 1 : 0,
             transition: 'opacity 5s ease-in-out',
           }}
         />
@@ -247,11 +243,13 @@ const Home = () => {
               </Typography>
               <Typography sx={{ fontFamily: 'serif', fontSize: isMediumScreen ? 14 : 11 }}>{words}</Typography>
             </Box>
-            {index <= 1 && <div style={{ height: '100%', borderLeft: '1px solid #000000', margin: '0 10px' }} />}
+            {index <= 1 && (
+              <div key={index} style={{ height: '100%', borderLeft: '1px solid #000000', margin: '0 10px' }} />
+            )}
           </>
         ))}
       </Box>
-      <Button
+      <StyledButton
         variant='contained'
         size={isMediumScreen ? undefined : 'small'}
         sx={{
@@ -262,7 +260,7 @@ const Home = () => {
           justifyContent: 'center',
         }}>
         {'Apply'}
-      </Button>
+      </StyledButton>
       <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', mt: isMediumScreen ? 20 : 5 }}>
         <Typography
           sx={{
@@ -275,9 +273,10 @@ const Home = () => {
           }}>
           Join The Fight
         </Typography>
-        <Button
+        <StyledButton
           variant='contained'
           size={isMediumScreen ? undefined : 'small'}
+          onClick={() => dispatch(setIsVisible(true))}
           sx={{
             mt: isMediumScreen ? 5 : 2,
             maxWidth: '150px',
@@ -286,7 +285,7 @@ const Home = () => {
             justifyContent: 'center',
           }}>
           {'Donate Today'}
-        </Button>
+        </StyledButton>
       </Box>
       <Box sx={{ display: 'flex', flexDirection: 'column', mt: isMediumScreen ? 20 : 14, alignItems: 'center' }}>
         <Typography sx={{ fontFamily: 'serif', mb: 2, fontSize: 19 }}> Naole's Angels</Typography>

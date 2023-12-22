@@ -1,4 +1,5 @@
-import { Button, Paper, Typography, useMediaQuery } from '@mui/material';
+import { Paper, Typography, useMediaQuery } from '@mui/material';
+import StyledButton from '../StyledButton/StyledButton';
 
 interface ContentPaperProps {
   title: string;
@@ -42,12 +43,12 @@ const ContentPaper = ({ title, content }: ContentPaperProps) => {
         }}>
         {content}
       </Typography>
-      <Button
+      <StyledButton
         variant='contained'
         size={isMediumScreen ? undefined : 'small'}
         sx={{ mt: isMediumScreen ? 20 : 10, mb: isMediumScreen ? 10 : 5 }}>
         {'Learn More'}
-      </Button>
+      </StyledButton>
     </Paper>
   );
 };

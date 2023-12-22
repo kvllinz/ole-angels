@@ -5,7 +5,7 @@ import Popover from '@mui/material/Popover';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
-import { Button } from '@mui/material';
+import StyledButton from '../StyledButton/StyledButton';
 
 interface FloatingButtonProps {
   onClick?: () => void;
@@ -53,12 +53,12 @@ const FloatingButton: React.FC<FloatingButtonProps> = ({ onClick }) => {
           horizontal: 'center',
         }}>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '8px' }}>
-          <Button>
+          <StyledButton>
             <FacebookIcon style={{ marginBottom: '8px' }} />
-          </Button>
-          <Button>
+          </StyledButton>
+          <StyledButton>
             <InstagramIcon />
-          </Button>
+          </StyledButton>
         </div>
       </Popover>
     </>

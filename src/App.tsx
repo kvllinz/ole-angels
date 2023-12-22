@@ -5,6 +5,7 @@ import { useRoutes } from 'react-router-dom';
 import appRoutes from './appRoutes';
 import ResponsiveAppBar from './Components/AppBar/AppBar';
 import FloatingButton from './Components/FloatingButton/FloatingButton';
+import Donate from './Components/Donate/Donate';
 
 const darkTheme = createTheme({
   palette: {
@@ -29,6 +30,7 @@ function App() {
       <CssBaseline>
         <ResponsiveAppBar />
         <FloatingButton />
+        <Donate />
         {routes}
       </CssBaseline>
     </ThemeProvider>
