@@ -1,5 +1,5 @@
-import { Box, Button, Modal, Paper, useMediaQuery } from '@mui/material';
-import React, { FC, useState } from 'react';
+import { Button, Modal, Paper } from '@mui/material';
+import { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { setIsVisible } from '../../commonSlice';
@@ -7,12 +7,12 @@ import { setIsVisible } from '../../commonSlice';
 interface DonateProps {}
 
 const Donate: FC<DonateProps> = () => {
-  const [formValues, setFormValues] = useState({ firstName: '', lastName: '' });
+  //   const [formValues, setFormValues] = useState({ firstName: '', lastName: '' });
 
   const { isVisible } = useSelector((state: RootState) => state.reducer);
   const dispatch = useDispatch();
 
-  const isMediumScreen = useMediaQuery('(min-width:1280px)');
+  //   const isMediumScreen = useMediaQuery('(min-width:1280px)');
 
   console.log({ isVisible });
 
