@@ -1,4 +1,4 @@
-import { Button, Modal, Paper } from '@mui/material';
+import { Box, Button, Modal, Paper, useMediaQuery } from '@mui/material';
 import { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
@@ -12,7 +12,7 @@ const Donate: FC<DonateProps> = () => {
   const { isVisible } = useSelector((state: RootState) => state.reducer);
   const dispatch = useDispatch();
 
-  //   const isMediumScreen = useMediaQuery('(min-width:1280px)');
+  const isXSmallScreen = useMediaQuery('(max-width:600px)');
 
   console.log({ isVisible });
 
@@ -26,10 +26,14 @@ const Donate: FC<DonateProps> = () => {
           justifyContent: 'center',
           alignItems: 'center',
           alignSelf: 'center',
-          height: '80%',
-          width: '70%',
+          height: isXSmallScreen ? '60%' : '70%',
+          width: isXSmallScreen ? '80%' : '50%',
         }}>
-        <Button onClick={() => dispatch(setIsVisible(false))}>x</Button>
+        <Box sx={{ display: 'flex', height: 60, backgroundColor: '#015955', width: '100%' }}>
+          <Button sx={{}} onClick={() => dispatch(setIsVisible(false))}>
+            x
+          </Button>
+        </Box>
       </Paper>
     </Modal>
   );

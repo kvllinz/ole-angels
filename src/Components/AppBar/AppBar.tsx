@@ -54,7 +54,7 @@ const ResponsiveAppBar = () => {
               color: 'inherit',
               textDecoration: 'none',
             }}>
-            Naole's Angels
+            Ole's Angels
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -104,7 +104,7 @@ const ResponsiveAppBar = () => {
               color: 'inherit',
               textDecoration: 'none',
             }}>
-            Naole's Angels
+            Ole's Angels
           </Typography>
           <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
             {pages.map(({ name, nav }) => (

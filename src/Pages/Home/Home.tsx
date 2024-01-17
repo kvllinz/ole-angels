@@ -1,5 +1,6 @@
 import { Box, Container, ImageList, ImageListItem, ImageListItemBar, Typography, useMediaQuery } from '@mui/material';
 import fist from '../../assets/fist.jpg';
+import ole2 from '../../assets/Ole2.jpg';
 import plant from '../../assets/plant.jpg';
 import womanWDog from '../../assets/womanWDog.jpg';
 import { useState, useEffect } from 'react';
@@ -68,11 +69,11 @@ const Home = () => {
       <Box display='flex' flexDirection={{ xs: 'column', md: 'row' }}>
         <Box
           component='img'
-          src={images[0].img}
+          src={ole2}
           sx={{
             width: { xs: '100%', sm: '100%', md: '30%' }, // Set the initial width of the image
             flex: '1 1 auto', // Allow the image to grow and shrink
-            maxWidth: { md: '650px' }, // Set a maximum width on medium screens
+            maxWidth: { md: '750px' }, // Set a maximum width on medium screens
             opacity: isImageVisible ? 1 : 0,
             transition: 'opacity 5s ease-in-out',
           }}
@@ -102,7 +103,7 @@ const Home = () => {
               color: 'inherit',
               textDecoration: 'none',
             }}>
-            Naole's Angels Gives Back
+            Ole's Angels Gives Back
           </Typography>
           <Typography
             sx={{
@@ -204,7 +205,7 @@ const Home = () => {
             pl: isMediumScreen ? 30 : 2,
             pr: isMediumScreen ? 30 : 2,
           }}>
-          Naole's Angels is proud to manage our Patient Assistance Grant Program, offering tailored to the unique
+          Ole's Angels is proud to manage our Patient Assistance Grant Program, offering tailored to the unique
           individual recovery of each patient applicant.
         </Typography>
       </Box>
@@ -288,9 +289,9 @@ const Home = () => {
         </StyledButton>
       </Box>
       <Box sx={{ display: 'flex', flexDirection: 'column', mt: isMediumScreen ? 20 : 14, alignItems: 'center' }}>
-        <Typography sx={{ fontFamily: 'serif', mb: 2, fontSize: 19 }}> Naole's Angels</Typography>
+        <Typography sx={{ fontFamily: 'serif', mb: 2, fontSize: 19 }}> Ole's Angels</Typography>
         <a style={{ fontFamily: 'serif' }}>info@mysite.com</a>
-        <Typography sx={{ fontFamily: 'serif', mt: 4, fontSize: 11 }}> ©2023 by Naole's Angels.</Typography>
+        <Typography sx={{ fontFamily: 'serif', mt: 4, fontSize: 11 }}> ©2023 by Ole's Angels.</Typography>
       </Box>
     </Container>
   );
