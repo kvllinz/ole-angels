@@ -12,7 +12,7 @@ const commonSlice = createSlice({
   name: 'common',
   initialState,
   reducers: {
-    setIsVisible: (state, action: PayloadAction<boolean>) => {
+    setIsVisible: (state: InitialState, action: PayloadAction<boolean>) => {
       console.log({ action });
       state.isVisible = action.payload;
     },
